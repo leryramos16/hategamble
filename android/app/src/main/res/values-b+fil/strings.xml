@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="blocker_service_label">Chitah Blocker</string>
+    <string name="blocker_service_description">Bina-block ang mga sugal na app at website na pinili mong i-block. Tinitingnan nito kung anong app ang bukas at ang address sa mga suportadong browser. Lahat ay nangyayari sa teleponong ito lang. Walang internet access ang Chitah at wala itong ipinapadala kahit saan.</string>
+</resources>

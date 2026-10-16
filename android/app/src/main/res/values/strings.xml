@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="blocker_service_label">Chitah Blocker</string>
+    <string name="blocker_service_description">Blocks gambling apps and websites you chose to block. It checks which app is open and the address shown in supported browsers. Everything happens on this phone. Chitah has no internet access and never sends anything anywhere.</string>
+</resources>

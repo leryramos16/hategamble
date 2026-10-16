@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peaceful cheetah logo (from peaceful-cheetah-icon.svg), without its tile so the
+     launcher can apply its own shape. Scaled to sit inside the adaptive-icon safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="1024"
+    android:viewportHeight="1024">
+    <group
+        android:pivotX="512"
+        android:pivotY="512"
+        android:scaleX="0.7"
+        android:scaleY="0.7">
+        <path android:fillColor="#F7E8C4" android:pathData="M512 113C690 113 827 242 827 409v207c0 164-133 297-297 297h-36c-164 0-297-133-297-297V409c0-167 137-296 315-296Z" />
+        <path android:fillColor="#D99435" android:pathData="M308 333c-61-39-88-121-55-181 8-15 26-22 42-16 74 28 119 92 105 164l-92 33Z" />
+        <path android:fillColor="#D99435" android:pathData="M716 333c61-39 88-121 55-181-8-15-26-22-42-16-74 28-119 92-105 164l92 33Z" />
+        <path android:fillColor="#3D332D" android:pathData="M294 189c34 18 57 49 63 85l-55 20c-23-28-31-66-8-105Z" />
+        <path android:fillColor="#3D332D" android:pathData="M730 189c-34 18-57 49-63 85l55 20c23-28 31-66 8-105Z" />
+        <path android:fillColor="#E9A841" android:pathData="M512 205c157 0 274 111 274 267v108c0 160-122 278-274 278S238 740 238 580V472c0-156 117-267 274-267Z" />
+        <path android:fillColor="#F7E8C4" android:pathData="M292 581c-24 0-43 19-43 43 0 78 63 141 141 141h244c78 0 141-63 141-141 0-24-19-43-43-43H292Z" />
+        <path android:strokeColor="#3D332D" android:strokeLineCap="round" android:strokeWidth="28" android:pathData="M360 504c26-35 72-35 98 0" />
+        <path android:strokeColor="#3D332D" android:strokeLineCap="round" android:strokeWidth="28" android:pathData="M566 504c26-35 72-35 98 0" />
+        <path android:fillColor="#3D332D" android:pathData="M478 611c0-19 15-34 34-34s34 15 34 34c0 22-16 42-34 54-18-12-34-32-34-54Z" />
+        <path android:strokeColor="#3D332D" android:strokeLineCap="round" android:strokeWidth="18" android:pathData="M512 664v21" />
+        <path android:strokeColor="#3D332D" android:strokeLineCap="round" android:strokeWidth="18" android:pathData="M512 685c-30 39-74 40-101 12" />
+        <path android:strokeColor="#3D332D" android:strokeLineCap="round" android:strokeWidth="18" android:pathData="M512 685c30 39 74 40 101 12" />
+        <!-- Spots (ellipses written as two arcs). -->
+        <path android:fillColor="#7B522E" android:pathData="
+            M325 381a30 23 0 1 0 60 0a30 23 0 1 0 -60 0Z
+            M413 325a25 31 0 1 0 50 0a25 31 0 1 0 -50 0Z
+            M561 325a25 31 0 1 0 50 0a25 31 0 1 0 -50 0Z
+            M639 381a30 23 0 1 0 60 0a30 23 0 1 0 -60 0Z
+            M291 472a25 31 0 1 0 50 0a25 31 0 1 0 -50 0Z
+            M683 472a25 31 0 1 0 50 0a25 31 0 1 0 -50 0Z
+            M381 588a19 15 0 1 0 38 0a19 15 0 1 0 -38 0Z
+            M605 588a19 15 0 1 0 38 0a19 15 0 1 0 -38 0Z" />
+    </group>
+</vector>
