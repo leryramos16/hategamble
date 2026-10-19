@@ -78,7 +78,7 @@ Future<void> resetAllData(WidgetRef ref) async {
   final native = ref.read(nativeProvider);
   await native.setBlockerConfig(enabled: false, packages: const [], domains: const [], keywords: const []);
   await native.clearBlockLog();
-  await native.setDiscreet(false); // restore the normal launcher icon
+  await native.setDiscreet(false);
   await ref.read(sharedPrefsProvider).clear();
   ref.invalidate(blockerProvider);
   ref.invalidate(profileProvider);

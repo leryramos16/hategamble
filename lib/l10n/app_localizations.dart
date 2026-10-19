@@ -1925,13 +1925,13 @@ abstract class AppLocalizations {
   /// No description provided for @discreetMode.
   ///
   /// In en, this message translates to:
-  /// **'Hide the app'**
+  /// **'Private screen'**
   String get discreetMode;
 
   /// No description provided for @discreetSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Disguise Chitah as a Notes app'**
+  /// **'Open Chitah to a plain notepad'**
   String get discreetSubtitle;
 
   /// No description provided for @discreetOnTitle.
@@ -1943,7 +1943,7 @@ abstract class AppLocalizations {
   /// No description provided for @discreetOnBody.
   ///
   /// In en, this message translates to:
-  /// **'The app now looks like \"Notes\" on the home screen, and blocked sites show a plain message. Reminders and notifications are turned off, so nothing hints the app is here. Opening it shows a notepad. To get back in, type your reveal code as a note, or long-press the \"Notes\" title. There\'s no way to recover the code if you forget it. Note: the app still appears in Android\'s Settings → Apps, and the blocker service is still listed in Accessibility settings.'**
+  /// **'Blocked sites now show a plain message. Reminders and notifications are turned off, so nothing hints the app is here. Opening it shows a notepad. To get back in, type your reveal code as a note, or long-press the \"Notes\" title. There\'s no way to recover the code if you forget it. The Chitah icon and name stay the same on your home screen.'**
   String get discreetOnBody;
 
   /// No description provided for @changeRevealCode.
@@ -1961,13 +1961,13 @@ abstract class AppLocalizations {
   /// No description provided for @discreetHelpOn.
   ///
   /// In en, this message translates to:
-  /// **'To open the real app: type your reveal code into the notepad, or long-press the \"Notes\" title. The app still shows in Settings → Apps and Accessibility settings — that can\'t be hidden on Android.'**
+  /// **'To open the real app: type your reveal code into the notepad, or long-press the \"Notes\" title.'**
   String get discreetHelpOn;
 
   /// No description provided for @discreetHelpOff.
   ///
   /// In en, this message translates to:
-  /// **'Turn this on to disguise the app as Notes, hide its branding on the block screen, and require a reveal code to open it.'**
+  /// **'Turn this on to open the app to a plain notepad, hide its branding on the block screen, and require a reveal code to see your data.'**
   String get discreetHelpOff;
 
   /// No description provided for @setRevealTitle.

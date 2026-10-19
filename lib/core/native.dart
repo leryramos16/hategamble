@@ -74,8 +74,7 @@ class NativeBridge {
   /// Language for the native "Paused" screen shown by the blocker.
   Future<void> setLanguage(String code) => _ch.invokeMethod('setLanguage', code);
 
-  /// Discreet mode: swaps the launcher icon to the "Notes" disguise and tells the
-  /// block screen to render unbranded. false restores the normal Chitah icon.
+  /// Discreet mode: tells the block screen to render unbranded.
   Future<void> setDiscreet(bool discreet) => _ch.invokeMethod('setDiscreet', discreet);
 
   /// Launchable apps. Pass [icons] false for a much faster list without icons,

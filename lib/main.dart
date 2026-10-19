@@ -96,8 +96,7 @@ class _ChitahAppState extends ConsumerState<ChitahApp> with WidgetsBindingObserv
       ref.read(nativeProvider).setLanguage(code);
     }, fireImmediately: true);
 
-    // Keep the launcher icon consistent with the saved setting on every launch,
-    // so the disguise self-heals if the alias state ever drifts out of sync.
+    // Keep the native block screen's discreet flag in sync with the saved setting.
     ref.listenManual(profileProvider.select((p) => p.discreetMode),
         (_, discreet) => ref.read(nativeProvider).setDiscreet(discreet), fireImmediately: true);
   }

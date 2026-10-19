@@ -73,7 +73,7 @@ class MainActivity : FlutterFragmentActivity() {
                         result.success(null)
                     }
                     "setDiscreet" -> {
-                        applyDiscreet(call.arguments as Boolean)
+                        BlockerStore.setDiscreet(this@MainActivity, call.arguments as Boolean)
                         result.success(null)
                     }
                     "getBlockLog" ->result.success(BlockerStore.readLog(this@MainActivity))
@@ -175,24 +175,6 @@ class MainActivity : FlutterFragmentActivity() {
         } finally {
             pendingSaveContent = null
         }
-    }
-
-    /// Swaps which launcher alias is enabled, so the icon/name becomes "Notes"
-    /// (discreet) or "Chitah" (normal). DONT_KILL_APP keeps this process alive.
-    private fun applyDiscreet(discreet: Boolean) {
-        BlockerStore.setDiscreet(this, discreet)
-        val pm = packageManager
-        fun set(alias: String, enabled: Boolean) = pm.setComponentEnabledSetting(
-            // Aliases are named after the code package (namespace), which differs
-            // from the application id (com.chitah.app).
-            ComponentName(this, "${MainActivity::class.java.`package`!!.name}$alias"),
-            if (enabled) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-            else PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-            PackageManager.DONT_KILL_APP,
-        )
-        // Exactly one alias is ever enabled, so there is always a way back in.
-        set(".NotesAlias", discreet)
-        set(".NormalAlias", !discreet)
     }
 
     private fun isServiceEnabled(): Boolean {

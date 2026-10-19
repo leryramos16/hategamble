@@ -1107,17 +1107,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get discreet => 'Discreet mode';
 
   @override
-  String get discreetMode => 'Hide the app';
+  String get discreetMode => 'Private screen';
 
   @override
-  String get discreetSubtitle => 'Disguise Chitah as a Notes app';
+  String get discreetSubtitle => 'Open Chitah to a plain notepad';
 
   @override
   String get discreetOnTitle => 'Discreet mode is on';
 
   @override
   String get discreetOnBody =>
-      'The app now looks like \"Notes\" on the home screen, and blocked sites show a plain message. Reminders and notifications are turned off, so nothing hints the app is here. Opening it shows a notepad. To get back in, type your reveal code as a note, or long-press the \"Notes\" title. There\'s no way to recover the code if you forget it. Note: the app still appears in Android\'s Settings → Apps, and the blocker service is still listed in Accessibility settings.';
+      'Blocked sites now show a plain message. Reminders and notifications are turned off, so nothing hints the app is here. Opening it shows a notepad. To get back in, type your reveal code as a note, or long-press the \"Notes\" title. There\'s no way to recover the code if you forget it. The Chitah icon and name stay the same on your home screen.';
 
   @override
   String get changeRevealCode => 'Change reveal code';
@@ -1127,11 +1127,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get discreetHelpOn =>
-      'To open the real app: type your reveal code into the notepad, or long-press the \"Notes\" title. The app still shows in Settings → Apps and Accessibility settings — that can\'t be hidden on Android.';
+      'To open the real app: type your reveal code into the notepad, or long-press the \"Notes\" title.';
 
   @override
   String get discreetHelpOff =>
-      'Turn this on to disguise the app as Notes, hide its branding on the block screen, and require a reveal code to open it.';
+      'Turn this on to open the app to a plain notepad, hide its branding on the block screen, and require a reveal code to see your data.';
 
   @override
   String get setRevealTitle => 'Set a reveal code';

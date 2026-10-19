@@ -63,8 +63,7 @@ class Profile {
   /// UI language code: 'en' or 'fil'.
   final String language;
 
-  /// When true, the app is disguised as "Notes": disguised launcher icon, an
-  /// unbranded block screen, and a decoy notepad that hides the real app until
+  /// When true, the app opens disguised as "Notes": an unbranded block screen and a decoy notepad that hides the real app until
   /// the reveal code is entered. Off by default.
   final bool discreetMode;
 

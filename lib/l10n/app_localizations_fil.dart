@@ -1055,17 +1055,17 @@ class AppLocalizationsFil extends AppLocalizations {
   String get discreet => 'Discreet mode';
 
   @override
-  String get discreetMode => 'Itago ang app';
+  String get discreetMode => 'Pribadong screen';
 
   @override
-  String get discreetSubtitle => 'Gawing parang Notes app ang Chitah';
+  String get discreetSubtitle => 'Buksan ang Chitah sa simpleng notepad';
 
   @override
   String get discreetOnTitle => 'Naka-on ang discreet mode';
 
   @override
   String get discreetOnBody =>
-      'Mukha na ngayong \"Notes\" ang app sa home screen, at nagpapakita ng simpleng mensahe ang mga naka-block na site. Naka-off ang mga paalala at notification, kaya walang magpapahiwatig na may app dito. Kapag binuksan, notepad ang lalabas. Para makabalik, i-type ang reveal code mo bilang note, o i-long-press ang pamagat na \"Notes\". Walang paraan para mabawi ang code kung makalimutan mo. Paalala: lumalabas pa rin ang app sa Settings → Apps ng Android, at nakalista pa rin ang blocker service sa Accessibility settings.';
+      'Nagpapakita na ngayon ng simpleng mensahe ang mga naka-block na site. Naka-off ang mga paalala at notification, kaya walang magpapahiwatig na may app dito. Kapag binuksan, notepad ang lalabas. Para makabalik, i-type ang reveal code mo bilang note, o i-long-press ang pamagat na \"Notes\". Walang paraan para mabawi ang code kung makalimutan mo. Hindi nagbabago ang icon at pangalan ng Chitah sa home screen mo.';
 
   @override
   String get changeRevealCode => 'Palitan ang reveal code';
@@ -1075,11 +1075,11 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get discreetHelpOn =>
-      'Para buksan ang totoong app: i-type ang reveal code mo sa notepad, o i-long-press ang pamagat na \"Notes\". Lumalabas pa rin ang app sa Settings → Apps at Accessibility settings — hindi iyon maitatago sa Android.';
+      'Para buksan ang totoong app: i-type ang reveal code mo sa notepad, o i-long-press ang pamagat na \"Notes\".';
 
   @override
   String get discreetHelpOff =>
-      'I-on ito para gawing parang Notes ang app, itago ang pangalan nito sa block screen, at kailanganin ang reveal code para buksan ito.';
+      'I-on ito para bumukas ang app sa simpleng notepad, itago ang pangalan nito sa block screen, at kailanganin ang reveal code para makita ang data mo.';
 
   @override
   String get setRevealTitle => 'Magtakda ng reveal code';
