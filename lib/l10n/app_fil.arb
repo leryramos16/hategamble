@@ -308,7 +308,7 @@
   "backupRestored": "Na-restore ang backup",
   "restoreFailed": "Hindi ma-restore: {error}",
   "eraseTitle": "Burahin lahat ng data?",
-  "eraseBody": "Permanente nitong buburahin ang streak, journal, settings at blocker setup mo sa phone na ito.",
+  "eraseBody": "Permanente nitong buburahin ang streak, journal, compendium, settings at blocker setup mo sa phone na ito.",
   "erase": "Burahin",
   "offlineFooter": "100% offline ang Chitah.\nWala itong internet permission at hindi nito ipinapadala ang data mo kahit saan.",
   "goalWhat": "Para saan ka nag-iipon?",
@@ -386,5 +386,23 @@
   "overlayNeeded": "Isa pang hakbang: payagan ang Chitah na lumabas sa ibabaw ng ibang app, para lumabas agad ang paalala mo kapag nagbukas ng sugal na app o site. Kung wala ito, sa home screen ka lang ibabalik.",
   "allowOverlay": "Payagan ang display over other apps",
   "aboutChitah": "Tungkol sa Chitah",
-  "paydayShortMonths": "Kung walang ganitong araw ang buwan (gaya ng ika-30 sa Pebrero), sa huling araw ng buwan ka paaalalahanan."
+  "paydayShortMonths": "Kung walang ganitong araw ang buwan (gaya ng ika-30 sa Pebrero), sa huling araw ng buwan ka paaalalahanan.",
+
+  "compendiumTitle": "Compendium",
+  "compendiumTagline": "Mga side quest para sa buhay na walang sugal. Gawin ang isa, kunan ng litrato, at i-unlock ang trivia o kasabihan nito.",
+  "compendiumProgress": "{done} sa {total} na side quest ang tapos na",
+  "questHow": "Paano",
+  "questTrivia": "Alam mo ba?",
+  "questQuote": "Kasabihan",
+  "questLockedTrivia": "Gawin ang side quest na ito para ma-unlock ang trivia nito.",
+  "questLockedQuote": "Gawin ang side quest na ito para ma-unlock ang kasabihan nito.",
+  "questDoneOn": "Natapos noong {date}",
+  "questDoIt": "Nagawa ko na! Kunan ng litrato",
+  "questRetake": "Kunan ulit ng litrato",
+  "questCameraHint": "Kunan ng litrato ngayon gamit ang camera. Mananatili itong pribado sa phone na ito.",
+  "questUndo": "Ibalik sa hindi pa tapos",
+  "questUndoTitle": "Ibalik sa hindi pa tapos?",
+  "questUndoBody": "Mabubura sa phone na ito ang litrato nito.",
+  "questAdded": "Nadagdag na sa compendium mo!",
+  "questPhotoMissing": "Wala sa phone na ito ang litrato."
 }

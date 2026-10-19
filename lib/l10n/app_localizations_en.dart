@@ -1055,7 +1055,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get eraseBody =>
-      'This permanently deletes your streak, journal, settings and blocker setup from this phone.';
+      'This permanently deletes your streak, journal, compendium, settings and blocker setup from this phone.';
 
   @override
   String get erase => 'Erase';
@@ -1316,4 +1316,61 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get paydayShortMonths =>
       'If a month has no such day (like the 30th in February), you\'ll be reminded on its last day.';
+
+  @override
+  String get compendiumTitle => 'Compendium';
+
+  @override
+  String get compendiumTagline =>
+      'Side quests for a life without gambling. Do one, take a photo, and unlock its trivia or quote.';
+
+  @override
+  String compendiumProgress(int done, int total) {
+    return '$done of $total side quests done';
+  }
+
+  @override
+  String get questHow => 'How';
+
+  @override
+  String get questTrivia => 'Trivia';
+
+  @override
+  String get questQuote => 'Quote';
+
+  @override
+  String get questLockedTrivia => 'Do this side quest to unlock its trivia.';
+
+  @override
+  String get questLockedQuote => 'Do this side quest to unlock its quote.';
+
+  @override
+  String questDoneOn(String date) {
+    return 'Done on $date';
+  }
+
+  @override
+  String get questDoIt => 'I did it! Take a photo';
+
+  @override
+  String get questRetake => 'Retake photo';
+
+  @override
+  String get questCameraHint =>
+      'Take the photo now with your camera. It stays private on this phone.';
+
+  @override
+  String get questUndo => 'Mark as not done';
+
+  @override
+  String get questUndoTitle => 'Mark as not done?';
+
+  @override
+  String get questUndoBody => 'Its photo will be deleted from this phone.';
+
+  @override
+  String get questAdded => 'Added to your compendium!';
+
+  @override
+  String get questPhotoMissing => 'The photo isn\'t on this phone.';
 }

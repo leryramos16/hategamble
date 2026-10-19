@@ -1829,7 +1829,7 @@ abstract class AppLocalizations {
   /// No description provided for @eraseBody.
   ///
   /// In en, this message translates to:
-  /// **'This permanently deletes your streak, journal, settings and blocker setup from this phone.'**
+  /// **'This permanently deletes your streak, journal, compendium, settings and blocker setup from this phone.'**
   String get eraseBody;
 
   /// No description provided for @erase.
@@ -2275,6 +2275,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'If a month has no such day (like the 30th in February), you\'ll be reminded on its last day.'**
   String get paydayShortMonths;
+
+  /// No description provided for @compendiumTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Compendium'**
+  String get compendiumTitle;
+
+  /// No description provided for @compendiumTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Side quests for a life without gambling. Do one, take a photo, and unlock its trivia or quote.'**
+  String get compendiumTagline;
+
+  /// No description provided for @compendiumProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} side quests done'**
+  String compendiumProgress(int done, int total);
+
+  /// No description provided for @questHow.
+  ///
+  /// In en, this message translates to:
+  /// **'How'**
+  String get questHow;
+
+  /// No description provided for @questTrivia.
+  ///
+  /// In en, this message translates to:
+  /// **'Trivia'**
+  String get questTrivia;
+
+  /// No description provided for @questQuote.
+  ///
+  /// In en, this message translates to:
+  /// **'Quote'**
+  String get questQuote;
+
+  /// No description provided for @questLockedTrivia.
+  ///
+  /// In en, this message translates to:
+  /// **'Do this side quest to unlock its trivia.'**
+  String get questLockedTrivia;
+
+  /// No description provided for @questLockedQuote.
+  ///
+  /// In en, this message translates to:
+  /// **'Do this side quest to unlock its quote.'**
+  String get questLockedQuote;
+
+  /// No description provided for @questDoneOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Done on {date}'**
+  String questDoneOn(String date);
+
+  /// No description provided for @questDoIt.
+  ///
+  /// In en, this message translates to:
+  /// **'I did it! Take a photo'**
+  String get questDoIt;
+
+  /// No description provided for @questRetake.
+  ///
+  /// In en, this message translates to:
+  /// **'Retake photo'**
+  String get questRetake;
+
+  /// No description provided for @questCameraHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Take the photo now with your camera. It stays private on this phone.'**
+  String get questCameraHint;
+
+  /// No description provided for @questUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as not done'**
+  String get questUndo;
+
+  /// No description provided for @questUndoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as not done?'**
+  String get questUndoTitle;
+
+  /// No description provided for @questUndoBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Its photo will be deleted from this phone.'**
+  String get questUndoBody;
+
+  /// No description provided for @questAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to your compendium!'**
+  String get questAdded;
+
+  /// No description provided for @questPhotoMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'The photo isn\'t on this phone.'**
+  String get questPhotoMissing;
 }
 
 class _AppLocalizationsDelegate

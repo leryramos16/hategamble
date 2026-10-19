@@ -8,6 +8,8 @@ import '../features/blocker/app_picker_screen.dart';
 import '../features/discreet/notes_screen.dart';
 import '../features/blocker/blocker_screen.dart';
 import '../features/checkin/checkin_screen.dart';
+import '../features/compendium/compendium_screen.dart';
+import '../features/compendium/quest_screen.dart';
 import '../features/dashboard/home_screen.dart';
 import '../features/insights/insights_screen.dart';
 import '../features/journal/journal_book_screen.dart';
@@ -85,6 +87,11 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/journal/write',
         builder: (_, state) => JournalEntryScreen(entryId: int.tryParse(state.uri.queryParameters['id'] ?? '')),
+      ),
+      GoRoute(path: '/compendium', builder: (_, _) => const CompendiumScreen()),
+      GoRoute(
+        path: '/compendium/:id',
+        builder: (_, state) => QuestScreen(id: state.pathParameters['id']!),
       ),
       GoRoute(path: '/blocker/apps', builder: (_, _) => const AppPickerScreen()),
       GoRoute(path: '/contacts', builder: (_, _) => const ContactsScreen()),

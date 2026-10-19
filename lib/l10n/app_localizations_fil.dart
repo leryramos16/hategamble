@@ -1002,7 +1002,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get eraseBody =>
-      'Permanente nitong buburahin ang streak, journal, settings at blocker setup mo sa phone na ito.';
+      'Permanente nitong buburahin ang streak, journal, compendium, settings at blocker setup mo sa phone na ito.';
 
   @override
   String get erase => 'Burahin';
@@ -1263,4 +1263,63 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get paydayShortMonths =>
       'Kung walang ganitong araw ang buwan (gaya ng ika-30 sa Pebrero), sa huling araw ng buwan ka paaalalahanan.';
+
+  @override
+  String get compendiumTitle => 'Compendium';
+
+  @override
+  String get compendiumTagline =>
+      'Mga side quest para sa buhay na walang sugal. Gawin ang isa, kunan ng litrato, at i-unlock ang trivia o kasabihan nito.';
+
+  @override
+  String compendiumProgress(int done, int total) {
+    return '$done sa $total na side quest ang tapos na';
+  }
+
+  @override
+  String get questHow => 'Paano';
+
+  @override
+  String get questTrivia => 'Alam mo ba?';
+
+  @override
+  String get questQuote => 'Kasabihan';
+
+  @override
+  String get questLockedTrivia =>
+      'Gawin ang side quest na ito para ma-unlock ang trivia nito.';
+
+  @override
+  String get questLockedQuote =>
+      'Gawin ang side quest na ito para ma-unlock ang kasabihan nito.';
+
+  @override
+  String questDoneOn(String date) {
+    return 'Natapos noong $date';
+  }
+
+  @override
+  String get questDoIt => 'Nagawa ko na! Kunan ng litrato';
+
+  @override
+  String get questRetake => 'Kunan ulit ng litrato';
+
+  @override
+  String get questCameraHint =>
+      'Kunan ng litrato ngayon gamit ang camera. Mananatili itong pribado sa phone na ito.';
+
+  @override
+  String get questUndo => 'Ibalik sa hindi pa tapos';
+
+  @override
+  String get questUndoTitle => 'Ibalik sa hindi pa tapos?';
+
+  @override
+  String get questUndoBody => 'Mabubura sa phone na ito ang litrato nito.';
+
+  @override
+  String get questAdded => 'Nadagdag na sa compendium mo!';
+
+  @override
+  String get questPhotoMissing => 'Wala sa phone na ito ang litrato.';
 }

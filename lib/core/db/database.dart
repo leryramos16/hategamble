@@ -56,13 +56,24 @@ class JournalEntries extends Table {
   TextColumn get photo => text().withDefault(const Constant(''))();
 }
 
-@DriftDatabase(tables: [CheckIns, Urges, Relapses, Contacts, JournalEntries])
+/// A finished side quest in the compendium, with the photo taken as proof.
+/// One row per quest; [questId] is the stable id from compendium.json.
+class QuestLogs extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get questId => text().unique()();
+  DateTimeColumn get at => dateTime()();
+
+  /// File name of the proof photo in the journal photos folder.
+  TextColumn get photo => text().withDefault(const Constant(''))();
+}
+
+@DriftDatabase(tables: [CheckIns, Urges, Relapses, Contacts, JournalEntries, QuestLogs])
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor])
       : super(executor ?? driftDatabase(name: 'hategamble'));
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -79,6 +90,7 @@ class AppDatabase extends _$AppDatabase {
             );
             await customStatement("UPDATE check_ins SET note = '', photo = ''");
           }
+          if (from < 5) await m.createTable(questLogs);
         },
       );
 
@@ -96,6 +108,18 @@ class AppDatabase extends _$AppDatabase {
           .write(JournalEntriesCompanion(note: Value(note), photo: Value(photo)));
 
   Future<void> deleteJournalEntry(int id) => (delete(journalEntries)..where((t) => t.id.equals(id))).go();
+
+  // ---- Compendium ----
+  Stream<List<QuestLog>> watchQuestLogs() => select(questLogs).watch();
+
+  /// Marks [questId] done now with [photo], replacing an earlier proof photo.
+  Future<void> completeQuest(String questId, String photo) {
+    final entry = QuestLogsCompanion.insert(questId: questId, at: DateTime.now(), photo: Value(photo));
+    return into(questLogs).insert(entry, onConflict: DoUpdate((_) => entry, target: [questLogs.questId]));
+  }
+
+  Future<void> uncompleteQuest(String questId) =>
+      (delete(questLogs)..where((t) => t.questId.equals(questId))).go();
 
   // ---- Check-ins ----
   Stream<List<CheckIn>> watchCheckIns() =>
@@ -138,6 +162,7 @@ class AppDatabase extends _$AppDatabase {
         'relapses': (await select(relapses).get()).map((e) => e.toJson()).toList(),
         'contacts': (await select(contacts).get()).map((e) => e.toJson()).toList(),
         'journalEntries': (await select(journalEntries).get()).map((e) => e.toJson()).toList(),
+        'questLogs': (await select(questLogs).get()).map((e) => e.toJson()).toList(),
       };
 
   Future<void> importAll(Map<String, dynamic> data) => transaction(() async {
@@ -165,6 +190,7 @@ class AppDatabase extends _$AppDatabase {
           b.insertAll(relapses, rows('relapses').map(Relapse.fromJson));
           // Backups made before Messenger support have no 'messenger' field.
           b.insertAll(contacts, rows('contacts').map((r) => Contact.fromJson({'messenger': '', ...r})));
+          b.insertAll(questLogs, rows('questLogs').map(QuestLog.fromJson));
         });
       });
 

@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 
-/// Journal photos, kept in the app's private storage (not the public gallery).
+/// Journal and compendium photos, kept in the app's private storage (not the
+/// public gallery).
 /// The database stores only the file name, so paths survive app updates.
 class JournalPhotos {
   JournalPhotos._(this.dir);

@@ -18,8 +18,9 @@ final journalEntriesProvider =
 final urgesProvider = StreamProvider<List<Urge>>((ref) => ref.watch(databaseProvider).watchUrges());
 final relapsesProvider = StreamProvider<List<Relapse>>((ref) => ref.watch(databaseProvider).watchRelapses());
 final contactsProvider = StreamProvider<List<Contact>>((ref) => ref.watch(databaseProvider).watchContacts());
+final questLogsProvider = StreamProvider<List<QuestLog>>((ref) => ref.watch(databaseProvider).watchQuestLogs());
 
-/// Overridden in main() with the opened photos folder.
+/// Overridden in main() with the opened photos folder (journal and compendium photos).
 final journalPhotosProvider = Provider<JournalPhotos>((ref) => throw UnimplementedError());
 
 /// Ticks every minute so streak counters stay live.

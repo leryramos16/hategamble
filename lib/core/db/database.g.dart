@@ -1780,6 +1780,296 @@ class JournalEntriesCompanion extends UpdateCompanion<JournalEntry> {
   }
 }
 
+class $QuestLogsTable extends QuestLogs
+    with TableInfo<$QuestLogsTable, QuestLog> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $QuestLogsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _questIdMeta = const VerificationMeta(
+    'questId',
+  );
+  @override
+  late final GeneratedColumn<String> questId = GeneratedColumn<String>(
+    'quest_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
+  );
+  static const VerificationMeta _atMeta = const VerificationMeta('at');
+  @override
+  late final GeneratedColumn<DateTime> at = GeneratedColumn<DateTime>(
+    'at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _photoMeta = const VerificationMeta('photo');
+  @override
+  late final GeneratedColumn<String> photo = GeneratedColumn<String>(
+    'photo',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(''),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, questId, at, photo];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'quest_logs';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<QuestLog> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('quest_id')) {
+      context.handle(
+        _questIdMeta,
+        questId.isAcceptableOrUnknown(data['quest_id']!, _questIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_questIdMeta);
+    }
+    if (data.containsKey('at')) {
+      context.handle(_atMeta, at.isAcceptableOrUnknown(data['at']!, _atMeta));
+    } else if (isInserting) {
+      context.missing(_atMeta);
+    }
+    if (data.containsKey('photo')) {
+      context.handle(
+        _photoMeta,
+        photo.isAcceptableOrUnknown(data['photo']!, _photoMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  QuestLog map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return QuestLog(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      questId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}quest_id'],
+      )!,
+      at: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}at'],
+      )!,
+      photo: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}photo'],
+      )!,
+    );
+  }
+
+  @override
+  $QuestLogsTable createAlias(String alias) {
+    return $QuestLogsTable(attachedDatabase, alias);
+  }
+}
+
+class QuestLog extends DataClass implements Insertable<QuestLog> {
+  final int id;
+  final String questId;
+  final DateTime at;
+
+  /// File name of the proof photo in the journal photos folder.
+  final String photo;
+  const QuestLog({
+    required this.id,
+    required this.questId,
+    required this.at,
+    required this.photo,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['quest_id'] = Variable<String>(questId);
+    map['at'] = Variable<DateTime>(at);
+    map['photo'] = Variable<String>(photo);
+    return map;
+  }
+
+  QuestLogsCompanion toCompanion(bool nullToAbsent) {
+    return QuestLogsCompanion(
+      id: Value(id),
+      questId: Value(questId),
+      at: Value(at),
+      photo: Value(photo),
+    );
+  }
+
+  factory QuestLog.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return QuestLog(
+      id: serializer.fromJson<int>(json['id']),
+      questId: serializer.fromJson<String>(json['questId']),
+      at: serializer.fromJson<DateTime>(json['at']),
+      photo: serializer.fromJson<String>(json['photo']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'questId': serializer.toJson<String>(questId),
+      'at': serializer.toJson<DateTime>(at),
+      'photo': serializer.toJson<String>(photo),
+    };
+  }
+
+  QuestLog copyWith({int? id, String? questId, DateTime? at, String? photo}) =>
+      QuestLog(
+        id: id ?? this.id,
+        questId: questId ?? this.questId,
+        at: at ?? this.at,
+        photo: photo ?? this.photo,
+      );
+  QuestLog copyWithCompanion(QuestLogsCompanion data) {
+    return QuestLog(
+      id: data.id.present ? data.id.value : this.id,
+      questId: data.questId.present ? data.questId.value : this.questId,
+      at: data.at.present ? data.at.value : this.at,
+      photo: data.photo.present ? data.photo.value : this.photo,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuestLog(')
+          ..write('id: $id, ')
+          ..write('questId: $questId, ')
+          ..write('at: $at, ')
+          ..write('photo: $photo')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, questId, at, photo);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is QuestLog &&
+          other.id == this.id &&
+          other.questId == this.questId &&
+          other.at == this.at &&
+          other.photo == this.photo);
+}
+
+class QuestLogsCompanion extends UpdateCompanion<QuestLog> {
+  final Value<int> id;
+  final Value<String> questId;
+  final Value<DateTime> at;
+  final Value<String> photo;
+  const QuestLogsCompanion({
+    this.id = const Value.absent(),
+    this.questId = const Value.absent(),
+    this.at = const Value.absent(),
+    this.photo = const Value.absent(),
+  });
+  QuestLogsCompanion.insert({
+    this.id = const Value.absent(),
+    required String questId,
+    required DateTime at,
+    this.photo = const Value.absent(),
+  }) : questId = Value(questId),
+       at = Value(at);
+  static Insertable<QuestLog> custom({
+    Expression<int>? id,
+    Expression<String>? questId,
+    Expression<DateTime>? at,
+    Expression<String>? photo,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (questId != null) 'quest_id': questId,
+      if (at != null) 'at': at,
+      if (photo != null) 'photo': photo,
+    });
+  }
+
+  QuestLogsCompanion copyWith({
+    Value<int>? id,
+    Value<String>? questId,
+    Value<DateTime>? at,
+    Value<String>? photo,
+  }) {
+    return QuestLogsCompanion(
+      id: id ?? this.id,
+      questId: questId ?? this.questId,
+      at: at ?? this.at,
+      photo: photo ?? this.photo,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (questId.present) {
+      map['quest_id'] = Variable<String>(questId.value);
+    }
+    if (at.present) {
+      map['at'] = Variable<DateTime>(at.value);
+    }
+    if (photo.present) {
+      map['photo'] = Variable<String>(photo.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuestLogsCompanion(')
+          ..write('id: $id, ')
+          ..write('questId: $questId, ')
+          ..write('at: $at, ')
+          ..write('photo: $photo')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -1788,6 +2078,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $RelapsesTable relapses = $RelapsesTable(this);
   late final $ContactsTable contacts = $ContactsTable(this);
   late final $JournalEntriesTable journalEntries = $JournalEntriesTable(this);
+  late final $QuestLogsTable questLogs = $QuestLogsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -1798,6 +2089,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     relapses,
     contacts,
     journalEntries,
+    questLogs,
   ];
 }
 
@@ -2831,6 +3123,184 @@ typedef $$JournalEntriesTableProcessedTableManager =
       JournalEntry,
       PrefetchHooks Function()
     >;
+typedef $$QuestLogsTableCreateCompanionBuilder =
+    QuestLogsCompanion Function({
+      Value<int> id,
+      required String questId,
+      required DateTime at,
+      Value<String> photo,
+    });
+typedef $$QuestLogsTableUpdateCompanionBuilder =
+    QuestLogsCompanion Function({
+      Value<int> id,
+      Value<String> questId,
+      Value<DateTime> at,
+      Value<String> photo,
+    });
+
+class $$QuestLogsTableFilterComposer
+    extends Composer<_$AppDatabase, $QuestLogsTable> {
+  $$QuestLogsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get questId => $composableBuilder(
+    column: $table.questId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get at => $composableBuilder(
+    column: $table.at,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get photo => $composableBuilder(
+    column: $table.photo,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$QuestLogsTableOrderingComposer
+    extends Composer<_$AppDatabase, $QuestLogsTable> {
+  $$QuestLogsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get questId => $composableBuilder(
+    column: $table.questId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get at => $composableBuilder(
+    column: $table.at,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get photo => $composableBuilder(
+    column: $table.photo,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$QuestLogsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $QuestLogsTable> {
+  $$QuestLogsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get questId =>
+      $composableBuilder(column: $table.questId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get at =>
+      $composableBuilder(column: $table.at, builder: (column) => column);
+
+  GeneratedColumn<String> get photo =>
+      $composableBuilder(column: $table.photo, builder: (column) => column);
+}
+
+class $$QuestLogsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $QuestLogsTable,
+          QuestLog,
+          $$QuestLogsTableFilterComposer,
+          $$QuestLogsTableOrderingComposer,
+          $$QuestLogsTableAnnotationComposer,
+          $$QuestLogsTableCreateCompanionBuilder,
+          $$QuestLogsTableUpdateCompanionBuilder,
+          (QuestLog, BaseReferences<_$AppDatabase, $QuestLogsTable, QuestLog>),
+          QuestLog,
+          PrefetchHooks Function()
+        > {
+  $$QuestLogsTableTableManager(_$AppDatabase db, $QuestLogsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$QuestLogsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$QuestLogsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$QuestLogsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> questId = const Value.absent(),
+                Value<DateTime> at = const Value.absent(),
+                Value<String> photo = const Value.absent(),
+              }) => QuestLogsCompanion(
+                id: id,
+                questId: questId,
+                at: at,
+                photo: photo,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String questId,
+                required DateTime at,
+                Value<String> photo = const Value.absent(),
+              }) => QuestLogsCompanion.insert(
+                id: id,
+                questId: questId,
+                at: at,
+                photo: photo,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$QuestLogsTable, QuestLog>(table),
+                  BaseReferences<_$AppDatabase, $QuestLogsTable, QuestLog>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$QuestLogsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $QuestLogsTable,
+      QuestLog,
+      $$QuestLogsTableFilterComposer,
+      $$QuestLogsTableOrderingComposer,
+      $$QuestLogsTableAnnotationComposer,
+      $$QuestLogsTableCreateCompanionBuilder,
+      $$QuestLogsTableUpdateCompanionBuilder,
+      (QuestLog, BaseReferences<_$AppDatabase, $QuestLogsTable, QuestLog>),
+      QuestLog,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -2845,4 +3315,6 @@ class $AppDatabaseManager {
       $$ContactsTableTableManager(_db, _db.contacts);
   $$JournalEntriesTableTableManager get journalEntries =>
       $$JournalEntriesTableTableManager(_db, _db.journalEntries);
+  $$QuestLogsTableTableManager get questLogs =>
+      $$QuestLogsTableTableManager(_db, _db.questLogs);
 }

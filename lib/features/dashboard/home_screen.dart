@@ -11,6 +11,7 @@ import '../../core/stats.dart';
 import '../../l10n/l10n.dart';
 import '../../shared/widgets.dart';
 import '../blocker/blocker_controller.dart';
+import '../compendium/compendium.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -25,6 +26,8 @@ class HomeScreen extends ConsumerWidget {
     final now = ref.watch(clockProvider).value ?? DateTime.now();
     final todayCheckIn = ref.watch(checkInsProvider).value?.where((c) => c.day == dayOnly(now)).firstOrNull;
     final blocker = ref.watch(blockerProvider).value;
+    final compendium = ref.watch(compendiumProvider).value;
+    final questLogs = ref.watch(questLogMapProvider);
 
     final hour = now.hour;
     final greeting = hour < 12 ? l.goodMorning : (hour < 18 ? l.goodAfternoon : l.goodEvening);
@@ -90,6 +93,20 @@ class HomeScreen extends ConsumerWidget {
                 onTap: () => context.push('/checkin'),
               ),
             ),
+            if (compendium != null) ...[
+              const SizedBox(height: 12),
+              Card(
+                child: ListTile(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  leading: Icon(Icons.explore_outlined, color: t.colorScheme.primary),
+                  title: Text(l.compendiumTitle),
+                  subtitle: Text(l.compendiumProgress(
+                      compendium.quests.where((q) => questLogs.containsKey(q.id)).length, compendium.quests.length)),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => context.push('/compendium'),
+                ),
+              ),
+            ],
             if (blocker != null && !blocker.protecting) ...[
               const SizedBox(height: 12),
               Card(
